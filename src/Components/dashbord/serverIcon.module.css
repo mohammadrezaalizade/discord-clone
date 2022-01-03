@@ -1,0 +1,15 @@
+.servername {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.servername:hover{
+  border-radius: 1rem;
+}
+.servername > img {
+  height: inherit;
+  width: inherit;
+  border-radius: inherit;
+}

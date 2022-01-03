@@ -1,0 +1,110 @@
+.container {
+  background-color: #36393f;
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  align-items: center;
+  align-content: center;
+  background-color: #292b2f;
+}
+
+.header h3 {
+  color: #ccc;
+  font-size: 1.5rem;
+  cursor: default;
+  user-select: none;
+}
+
+.header > div {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 1rem;
+}
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  border: 1px solid #36393f;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+.searchInput input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  padding: inherit;
+  color: #ccc;
+}
+.headerNavBarIcon {
+  color: #ccc;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.headerNavBarIcon:hover {
+  color: #cfcfcf;
+}
+.chat {
+  flex: 1;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #4d4d4d;
+  width: 95%;
+  margin: 2rem auto;
+  border-radius: 1rem;
+}
+.inputContainer div {
+  flex: 1;
+  width: inherit;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+.inputContainer > div > input {
+  outline: none;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: #ccc;
+  font-size: 1.5rem;
+}
+.inputSendIcon {
+  font-size: 2rem;
+  color: #24baff;
+  transform: rotate(20deg);
+  cursor: pointer;
+  background-color: #ccc;
+  padding: 0.5rem;
+  border-radius: 100%;
+  transition: all 0.2s ease-in-out;
+}
+.inputSendIcon:hover {
+  color: #ccc;
+  background-color: #24baff;
+  border-radius: 50%;
+}
+.inputIcon {
+  font-size: 2rem;
+  color: #acacac;
+  cursor: pointer;
+  background-color: #313641;
+  padding: 0.5rem;
+  border-radius: 100%;
+  transition: all 0.2s ease-in-out;
+}
+.inputIcon:hover {
+  color: #313641;
+  background-color: #acacac;
+}
