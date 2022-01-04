@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Dashbord, HomePage, Login } from "./Components";
-import "./app.css"
+import classes from  "./app.module.css"
 import Modal from "./Components/modal/Modal";
 import { useContext } from "react";
 import { ModalStatusContext } from "./context/modalContext";
@@ -9,7 +9,7 @@ function App() {
   const ctx = useContext(ModalStatusContext)
 
   return (
-    <div className="app">
+    <div className={classes.app}>
       {ctx.modalStatus && <Modal />}
       <Routes>
         <Route path="/" element={<HomePage />} />
