@@ -1,26 +1,14 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import classes from "./navbarLink.module.css"
 
 const NavbarLink = ({ title, path }) => {
   return (
-    <NavList className="navbarLink">
+    <li className={classes.navbarLink}>
       <Link to={path}>
         <a>{title}</a>
       </Link>
-    </NavList>
+    </li>
   );
 };
-
-const NavList = styled.li`
-  font-size: 1.5rem;
-  font-weight: 600;
-  a {
-    color: #fff;
-    transition: all 0.1s ease-in;
-  }
-  a:hover {
-    color: #e2e2e2;
-  }
-`;
 
 export default NavbarLink;

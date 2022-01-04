@@ -1,0 +1,12 @@
+.navbarLink {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.navbarLink a {
+  color: #fff;
+  transition: all 0.1s ease-in;
+}
+
+.navbarLink a:hover {
+  color: #e2e2e2;
+}

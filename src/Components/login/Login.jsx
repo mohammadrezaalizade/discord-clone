@@ -1,7 +1,7 @@
 import { signInWithPopup } from "firebase/auth";
 import { useContext, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import classes from "./login.module.css"
 import {
   UserauthContextDispath,
 } from "../../context/userAuthContext";
@@ -33,47 +33,13 @@ const Login = () => {
   };
 
   return (
-    <Container>
-      <Content>
+    <div className={classes.container}>
+      <div className={classes.content}>
         <img src="/asset/images/logo.svg" alt="" />
         <button onClick={handleLogin}>Login with google</button>
-      </Content>
-    </Container>
+      </div>
+    </div>
   );
 };
-const Container = styled.div`
-  background-color: #202225;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-`;
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  gap: 5rem;
-  img {
-    width: 20rem;
-    height: auto;
-    object-fit: contain;
-  }
-  button {
-    border: none;
-    border-radius: 2rem;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    font-size: 1.7rem;
-    background-color: #295de7;
-    color: #fff;
-    transition: all 0.2s ease-out;
-    &:hover {
-      background-color: #3e69e2;
-    }
-  }
-`;
 
 export default Login;

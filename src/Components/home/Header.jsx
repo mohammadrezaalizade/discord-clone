@@ -1,9 +1,8 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { UserauthContext } from "../../context/userAuthContext";
 import NavbarLink from "./NavbarLink";
-
+import classes from "./header.module.css"
 const Header = () => {
   const navigate = useNavigate();
   const ctx = useContext(UserauthContext);
@@ -16,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <Wapper>
+    <div className={classes.container}>
       <Link to="/">
         <img src="/asset/images/logo.svg" alt="Discord logo" />
       </Link>
@@ -32,53 +31,8 @@ const Header = () => {
       <button onClick={handleLogin}>
         {ctx.user ? "Open on Browser" : "Login"}
       </button>
-    </Wapper>
+    </div>
   );
 };
-
-const Wapper = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  align-self: center;
-  padding: 2rem 5rem;
-
-  img {
-    height: 10rem;
-    width: 10rem;
-  }
-
-  div {
-    display: none;
-
-    @media only screen and (min-width: 768px) {
-      display: flex;
-      ul {
-        display: flex;
-        gap: 1.5rem;
-      }
-    }
-  }
-
-  button {
-    padding: 1rem 2rem;
-    border: none;
-    background: #fff;
-    border: none;
-    border-radius: 3rem;
-    cursor: pointer;
-    box-shadow: none;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #313131;
-    transition: all 0.2s ease-out;
-  }
-  button:hover {
-    -webkit-box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 21px 0px rgba(0, 0, 0, 0.2);
-  }
-`;
 
 export default Header;

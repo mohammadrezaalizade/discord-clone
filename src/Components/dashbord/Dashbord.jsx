@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { UserauthContext } from "../../context/userAuthContext";
 import Chat from "./Chat";
 import classes from "./dashbord.module.css";
