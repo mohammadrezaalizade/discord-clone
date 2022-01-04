@@ -4,35 +4,24 @@
   scroll-behavior: smooth;
   overflow-y: hidden;
 }
+
 .content {
   display: flex;
+  align-content: center;
   align-items: center;
   justify-content: center;
-  margin-top: 10rem;
-  flex-direction: column;
   padding: 2rem 10rem;
-  position: relative;
-  bottom: 5rem;
+  gap: 4rem;
 }
 
-.content img {
-  height: 50rem;
-  width: 50rem;
-  transform: scale(0.9);
-  overflow-y: hidden;
-}
-
-@media only screen and (min-width: 992px) {
-  .content div {
-    flex-direction: row;
+@media (max-width: 1400px) {
+  .content {
+    flex-direction: column-reverse;
     justify-content: space-between;
   }
-
   .content img {
-    height: 100%;
-    width: 100%;
-    transform: scale(0.9);
-    overflow-y: hidden;
+    height: 80%;
+    width: 80%;
   }
 }
 
@@ -50,24 +39,20 @@
 .contentIntroduce h1 {
   font-size: 3rem;
 }
-
 .contentIntroduce p {
   width: 40rem;
   font-size: 2rem;
-  text-align: center;
+  text-align: justify;
 }
-
 .btnContainer {
   display: flex;
-  flex-direction: column;
   gap: 1.5rem;
-  justify-content: space-between;
   align-items: center;
   align-content: center;
   width: 45rem;
+  margin-left: 5rem;
 }
-
-.btnContainer button {
+.btnContainer > button {
   border: none;
   border-radius: 2rem;
   padding: 1rem 1.5rem;
@@ -76,17 +61,10 @@
   font-weight: 600;
   color: #ccc;
 }
-
-.btnContainer #discordApp {
-  color: #1f2937;
+.discordApp {
+  color: #1f2937 !important;
 }
-
-.btnContainer #discordBrowser {
+.discordBrowser {
   background-color: #1f2937;
 }
 
-@media only screen and (min-width: 768px) {
-  .btnContainer {
-    flex-direction: row;
-  }
-}
