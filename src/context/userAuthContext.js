@@ -3,7 +3,6 @@ import { userAuthReducer } from "../util/userAuthReducer";
 
 export const initState = {
     user: null,
-    serverId:null
 }
 
 export const UserauthContext = createContext(null);

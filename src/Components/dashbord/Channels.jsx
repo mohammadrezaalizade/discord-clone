@@ -13,10 +13,12 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import {
   addDoc,
   collection,
+  doc,
   onSnapshot,
   orderBy,
   query,
   serverTimestamp,
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Link, useParams } from "react-router-dom";
@@ -25,27 +27,40 @@ const Channels = () => {
   const params = useParams();
   const [channelsName] = useCollection(query(collection(db, "servers")));
   const [channelName, setChannelName] = useState(null);
-  console.log(params);
-  useEffect(
-    () =>
+  const [serverId, setServerId] = useState("");
+  useEffect(() => {
+    if (serverId) {
       onSnapshot(
         query(
-          collection(db, "servers", "axwEuKoBuIaLWTcWWcJt", "channelName"),
+          collection(db, "servers", serverId, "channelName"),
           orderBy("timestamp", "asc")
         ),
         (snapshot) => setChannelName(snapshot.docs)
-      ),
-    [db, params?.serverId]
-  );
+      );
+    }
+  }, [db, serverId]);
   const addChannel = async () => {
     let channelName = prompt("Enter new channel name");
     if (channelName.trim().length >= 4) {
-      await addDoc(collection(db, "servers", params.serverId, "channelName"), {
-        channelName,
-        timestamp: serverTimestamp(),
-      });
+      const docRef = await addDoc(
+        collection(db, "servers", params.serverId, "channelName"),
+        {
+          channelName,
+          timestamp: serverTimestamp(),
+        }
+      );
+      await updateDoc(
+        doc(db, "servers", params.serverId, "channelName", docRef.id),
+        {
+          id: docRef.id,
+        }
+      );
     }
   };
+
+  useEffect(() => {
+    setServerId(params.serverId);
+  }, [params.serverId]);
 
   return (
     <div className={classes.channels}>
@@ -55,9 +70,9 @@ const Channels = () => {
             {params.serverId &&
               channelsName &&
               channelsName.docs.map(
-                (doc) =>
+                (doc, i) =>
                   doc.data().id === params.serverId && (
-                    <p>{doc.data().serverName}</p>
+                    <p key={i}>{doc.data().serverName}</p>
                   )
               )}
             <HiOutlineArrowSmDown />

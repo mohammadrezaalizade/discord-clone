@@ -53,6 +53,10 @@
 }
 .chat {
   flex: 1;
+  overflow-y: scroll;
+}
+.chatRef {
+  padding-bottom: 4rem;
 }
 .inputContainer {
   display: flex;

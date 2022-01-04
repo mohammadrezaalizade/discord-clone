@@ -15,9 +15,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<Navigate replace to="/" />} />
         <Route path="/login" element={<Login />} />
+
         <Route path="/dashbord" element={<Dashbord />} >
-          <Route path=":serverId" element={<Dashbord />} />
-          <Route path=":channelId" element={<Dashbord />} />  {/*   I WANT =>    /dashbord/:serverId/:channelId  */}
+          <Route path=":serverId" element={<Dashbord />} >
+            <Route path=":channelId" element={<Dashbord />} />
+          </Route>
         </Route>
       </Routes>
     </div>

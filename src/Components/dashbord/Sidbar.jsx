@@ -1,21 +1,18 @@
-import {
-  HiOutlineLogout,
-  HiPlusSm,
-} from "react-icons/hi";
-import { Link, useParams } from "react-router-dom";
+import { HiOutlineLogout, HiPlusSm } from "react-icons/hi";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import classes from "./sidbar.module.css";
 import ServerIcon from "./ServerIcon";
-import {
-  ModalStatusContextDispath,
-} from "../../context/modalContext";
-import { db } from "../../firebase";
+import { ModalStatusContextDispath } from "../../context/modalContext";
+import { auth, db } from "../../firebase";
 import "firebase/compat/firestore";
 import { collection, query } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useEffect } from "react/cjs/react.development";
 import { ServerContextDispath } from "../../context/serverContext";
 import Channels from "./Channels";
+import { signOut } from "firebase/auth";
+import { UserauthContextDispath } from "../../context/userAuthContext";
 
 const Sidbar = () => {
   const dispatchModal = useContext(ModalStatusContextDispath);
@@ -38,6 +35,7 @@ const Sidbar = () => {
 
   const [servers] = useCollection(query(collection(db, "servers")));
 
+  
   return (
     <div className={classes.container}>
       <div className={classes.content}>
